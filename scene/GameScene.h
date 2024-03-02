@@ -9,6 +9,8 @@
 #include "ViewProjection.h"
 #include "WorldTransform.h"
 #include"stdio.h"
+#include"GameManager.h"
+#include<memory>
 
 /// <summary>
 /// ゲームシーン
@@ -45,6 +47,8 @@ private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
 	Audio* audio_ = nullptr;
+
+	std::unique_ptr<GameManager> gameManager_;
 
 	/// <summary>
 	/// ゲームシーン用
