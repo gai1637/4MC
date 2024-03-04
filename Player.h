@@ -16,9 +16,20 @@ public:
 	void Draw() override;
 	void Draw3D(const ViewProjection& viewProjection);
 	void BehaviorUpdate();
+	Vector3 GetPrepos() { return PrePos; }
+	void SetPrepos(const Vector3& pos) { PrePos = pos; }
+
+
+private:
+	void kRootInitialize();
+	void KRootUpdate();
 
 private:
 	Input* input_;
 	Behavior behavior_ = Behavior::kRoot;
 	std::optional<Behavior> behaviorRequest_ = std::nullopt;
+	XINPUT_STATE joyState;
+	Vector3 PrePos;
+	float speed;
+	float jumpSpeed;
 };

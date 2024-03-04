@@ -3,6 +3,7 @@
 #include "ViewProjection.h"
 #include"FollowCamera.h"
 #include<memory>
+#include"Player.h"
 class StageScene : public IScene {
 public:
 	void Iint() override;
@@ -11,5 +12,6 @@ public:
 	void Draw2D() override;
 
 private:
-
+	std::unique_ptr<Player> player_;
+	ViewProjection viewProjection_;
 };

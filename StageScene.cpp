@@ -1,9 +1,11 @@
 ﻿#include "StageScene.h"
 
-void StageScene::Iint() {}
+void StageScene::Iint() { 
+	viewProjection_.Initialize();
+	player_->Initialize(); }
 
-void StageScene::Update() {}
+void StageScene::Update() { player_->Update(); }
 
-void StageScene::Draw3D() {}
+void StageScene::Draw3D() { player_->Draw3D(viewProjection_); }
 
-void StageScene::Draw2D() {}
+void StageScene::Draw2D() { player_->Draw(); }
