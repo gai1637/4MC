@@ -70,10 +70,12 @@ void Player::KRootUpdate() {
 		if (isMoving) {
 			if (move > 0) {
 			PrePos.x += speed;
+			if (speed<=MaxSpeed)
 			speed += acceleration;
 			}
 			else {
 			PrePos.x-=speed;
+			if (speed<=MaxSpeed)
 			speed += acceleration;
 			}
 		} else {
@@ -87,9 +89,11 @@ void Player::KRootUpdate() {
 	{
 		if (input_->PushKey(DIK_A)) {
 			PrePos.x-=speed;
+			if (speed<=MaxSpeed)
 			speed += acceleration;
 		}else if (input_->PushKey(DIK_D)) {
 			PrePos.x += speed;
+			if (speed<=MaxSpeed)
 			speed += acceleration;
 		} else {
 			speed = 0.f;
