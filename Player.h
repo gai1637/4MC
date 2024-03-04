@@ -1,102 +1,24 @@
-Ôªø#pragma once
-#include "Audio.h"
-#include "DirectXCommon.h"
-#include "Input.h"
-#include "Model.h"
-#include "SafeDelete.h"
-#include "Sprite.h"
-#include "ViewProjection.h"
-#include "WorldTransform.h"
-#include<memory>
-#include"BaseCharacter.h"
-#include<optional>
-#include"Hammer.h"
-class Hammer;
-class Player : public BaseCharacter{
-private:
-	enum {
-		Body,
-		Head,
-		L_arm,
-		R_arm,
-		Hammer_
-	};
-	enum class Behavior {
-		kRoot,
-		kAttack,
-		kJump,
-		kjumpAttack,
-	};
+#pragma once
+#include "Char.h"
+#include"Input.h"
+#include"optional"
+enum Behavior {
+	kRoot,//í èÌèÛë‘
+	kAttack,//çUåÇèÛë‘
+	kFlyte,//îÚçsèÛë‘
 
+
+};
+class Player : public Char {
+public:
+	void Initialize() override;
+	void Update() override;
+	void Draw() override;
+	void Draw3D(const ViewProjection& viewProjection);
+	void BehaviorUpdate();
+
+private:
+	Input* input_;
 	Behavior behavior_ = Behavior::kRoot;
 	std::optional<Behavior> behaviorRequest_ = std::nullopt;
-
-	std::unique_ptr<Hammer> hammer_;
-
-	WorldTransform worldTransform_;
-	const ViewProjection* viewProjection_ = nullptr;
-
-	
-	WorldTransform worldTransform_Body_;
-	
-	WorldTransform worldTransform_Head_;
-	
-	WorldTransform worldTransform_L_arm_;
-	
-	WorldTransform worldTransform_R_arm_;
-	
-	WorldTransform worldTransform_Hammer_;
-	
-	
-	float floatingParameter_;
-
-	Vector3 velocity_ = {};
-
-	XINPUT_STATE joyState; 
-
-	int life;
-
-public:
-	/// <summary>
-	/// „Éá„Çπ„Éà„É©„ÇØ„Çø
-	/// </summary>
-	~Player();
-
-	/// <summary>
-	/// ÂàùÊúüÂåñ
-	/// </summary>
-	void Initialize(const std::vector<Model*>& models)override;
-
-	/// <summary>
-	/// ÊØé„Éï„É¨„Éº„É†Âá¶ÁêÜ
-	/// </summary>
-	void Update()override;
-
-	/// <summary>
-	/// ÊèèÁîª
-	/// </summary>
-	void Draw(const ViewProjection &viewprojection);
-
-	void SetViewProjection(const ViewProjection* viewProjection) {
-		viewProjection_ = viewProjection;
-	}
-	void InitializeFloatingGimmick();
-	void UpdateFloatingGimmick();
-	void BehaviorRootUpdate();
-	void BehaviorAttackUpdate();
-	void BehaviorRootInitialize();
-	void BehaviorAttackInitialize();
-	void BehaviorJumpInitialize();
-	void BehaviorJumpUpdate();
-	void BehaviorJumpAttackInitialize();
-	void BehaviorJumpAttackUpdate();
-	void OnCollision([[maybe_unused]]Collider* other) override;
-
-
-	const WorldTransform &GetWorldTransform() { return worldTransform_Body_; }
-
-	Vector3 GetCenterPosition() const override;
-	const std::unique_ptr<Hammer>& GetHammer() const { return hammer_; }
-
-	int GetLife() { return life; }
 };
