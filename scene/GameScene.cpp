@@ -11,9 +11,12 @@ void GameScene::Initialize() {
 	dxCommon_ = DirectXCommon::GetInstance();
 	input_ = Input::GetInstance();
 	audio_ = Audio::GetInstance();
+
+	gameManager_ = std::make_unique<GameManager>();
+	
 }
 
-void GameScene::Update() {}
+void GameScene::Update() { gameManager_->Update(); }
 
 void GameScene::Draw() {
 
@@ -24,9 +27,7 @@ void GameScene::Draw() {
 	// 背景スプライト描画前処理
 	Sprite::PreDraw(commandList);
 
-	/// <summary>
-	/// ここに背景スプライトの描画処理を追加できる
-	/// </summary>
+	
 
 	// スプライト描画後処理
 	Sprite::PostDraw();
@@ -38,9 +39,7 @@ void GameScene::Draw() {
 	// 3Dオブジェクト描画前処理
 	Model::PreDraw(commandList);
 
-	/// <summary>
-	/// ここに3Dオブジェクトの描画処理を追加できる
-	/// </summary>
+	gameManager_->Draw3D();
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
@@ -50,9 +49,7 @@ void GameScene::Draw() {
 	// 前景スプライト描画前処理
 	Sprite::PreDraw(commandList);
 
-	/// <summary>
-	/// ここに前景スプライトの描画処理を追加できる
-	/// </summary>
+	gameManager_->Draw2D();
 
 	// スプライト描画後処理
 	Sprite::PostDraw();
