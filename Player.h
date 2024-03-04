@@ -1,11 +1,11 @@
-#pragma once
+ï»¿#pragma once
 #include "Char.h"
 #include"Input.h"
 #include"optional"
 enum Behavior {
-	kRoot,//’Êíó‘Ô
-	kAttack,//UŒ‚ó‘Ô
-	kFlyte,//”òsó‘Ô
+	kRoot,//é€šå¸¸çŠ¶æ…‹
+	kAttack,//æ”»æ’ƒçŠ¶æ…‹
+	kFlyte,//é£›è¡ŒçŠ¶æ…‹
 
 
 };
