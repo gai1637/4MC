@@ -12,7 +12,7 @@ void GameScene::Initialize() {
 	input_ = Input::GetInstance();
 	audio_ = Audio::GetInstance();
 
-	gameManager_->Initialize();
+	gameManager_ = std::make_unique<GameManager>();
 	
 }
 
@@ -27,9 +27,7 @@ void GameScene::Draw() {
 	// 背景スプライト描画前処理
 	Sprite::PreDraw(commandList);
 
-	/// <summary>
-	/// ここに背景スプライトの描画処理を追加できる
-	/// </summary>
+	
 
 	// スプライト描画後処理
 	Sprite::PostDraw();

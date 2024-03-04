@@ -15,9 +15,8 @@ private:
 	int prevSceneNo_;//前のシーン
 public:
 	GameManager();
-	~GameManager();
 
-	void Initialize();
+	
 
 	void Update();
 	void Draw3D();

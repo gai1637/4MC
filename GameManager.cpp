@@ -1,14 +1,21 @@
 ﻿#include "GameManager.h"
 
-void GameManager::Initialize() { 
+GameManager::GameManager() {
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();
+	
 	sceneArr_[STAGE] = std::make_unique<StageScene>();
+	
 	sceneArr_[CLEAR] = std::make_unique<ClearScene>();
+	
 	sceneArr_[GAMEOVER] = std::make_unique<GameOverScene>();
-
+	
 	currentSceneNo_ = TITLE;
-	prevSceneNo_ = TITLE;
+
+	sceneArr_[currentSceneNo_]->Iint();
+
 }
+
+
 
 void GameManager::Update() { 
 	prevSceneNo_ = currentSceneNo_;
@@ -24,4 +31,4 @@ void GameManager::Update() {
 
 void GameManager::Draw3D() {}
 
-void GameManager::Draw2D() {}
+void GameManager::Draw2D() { sceneArr_[currentSceneNo_]->Draw2D(); }
