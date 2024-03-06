@@ -4,6 +4,7 @@
 #include"TextureManager.h"
 #include<memory>
 #include"Sprite.h"
+#include"input/Input.h"
 class TitleScene : public IScene {
 public:
 	void Iint() override;
@@ -14,6 +15,6 @@ public:
 private:
 	uint32_t textureHandle_ = 0;
 	std::unique_ptr<Sprite> sprite_ = nullptr;
-
+	Input* input_;
 
 };

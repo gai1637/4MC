@@ -10,6 +10,7 @@ public:
 	void Update() override;
 	void Draw3D() override;
 	void Draw2D() override;
+	StageScene();
 
 private:
 	std::unique_ptr<Player> player_;

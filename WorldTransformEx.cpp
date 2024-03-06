@@ -1,4 +1,4 @@
-#include "MathUtilityForText.h"
+
 #include "WorldTransform.h"
 
 // WorldTransform.h に関数宣言を加える

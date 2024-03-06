@@ -39,7 +39,7 @@ void GameScene::Draw() {
 	// 3Dオブジェクト描画前処理
 	Model::PreDraw(commandList);
 
-	gameManager_->Draw3D();
+	/*gameManager_->Draw3D();*/
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();

@@ -2,12 +2,13 @@
 #include "Player.h"
 
 void Player::Initialize() { 
-	worldTransform_->Initialize();
-	PrePos = worldTransform_->translation_;
+	
+	worldTransform_.Initialize();
+	PrePos = worldTransform_.translation_;
 	speed = 0.f;
 	jumpSpeed = 0.f;
 	sprite_.reset(Sprite::Create(
-	    textureHandle_, {worldTransform_->translation_.x, worldTransform_->translation_.y}));
+	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
 
 }
 
@@ -15,11 +16,11 @@ void Player::Update() {
 
 	BehaviorUpdate();
 
-	worldTransform_->UpdateMatrix(); 
+	worldTransform_.UpdateMatrix(); 
 }
 
 void Player::Draw3D(const ViewProjection& viewProjection) {
-
+	model->Draw(worldTransform_, viewProjection);
 }
 
 void Player::BehaviorUpdate() { 
@@ -59,7 +60,7 @@ void Player::kRootInitialize() {
 void Player::KRootUpdate() { 
 	const float acceleration = 0.1f;
 	const float MaxSpeed = 1.0f;
-	const float gravity = 0.098f;
+	const float gravity = 0.0f;
 	if (Input::GetInstance()->GetJoystickState(0, joyState)) {
 		bool isMoving = false;
 		const float threshold = 0.7f;

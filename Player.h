@@ -32,4 +32,5 @@ private:
 	Vector3 PrePos;
 	float speed;
 	float jumpSpeed;
+	
 };

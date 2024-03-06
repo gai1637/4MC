@@ -11,11 +11,11 @@ public:
 	virtual void Draw()=0;
 	virtual void Update()=0;
 
-	WorldTransform* GetworldTransform() { return worldTransform_; }
-	Vector3 GetPosition() { return worldTransform_->translation_; }
+	const WorldTransform& GetworldTransform() { return worldTransform_; }
+	const Vector3 GetPosition() { return worldTransform_.translation_; }
 
 protected:
-	WorldTransform* worldTransform_=nullptr;
+	WorldTransform worldTransform_;
 	std::unique_ptr<Sprite> sprite_=nullptr;
 	std::unique_ptr<Model> model = nullptr;
 	uint32_t textureHandle_ = 0;

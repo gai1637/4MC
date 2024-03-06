@@ -7,7 +7,19 @@ void TitleScene::Iint() {
 
 }
 
-void TitleScene::Update() {}
+void TitleScene::Update() {
+	XINPUT_STATE joyState;
+	if (Input::GetInstance()->GetJoystickState(0, joyState)) {
+		if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_B) {
+			sceneNo_ = STAGE;
+		}
+
+	} /*else {
+		if (input_->TriggerKey(DIK_SPACE)) {
+		sceneNo_ = STAGE;
+		}
+	}*/
+}
 
 void TitleScene::Draw3D() {}
 
