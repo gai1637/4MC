@@ -111,6 +111,7 @@
     <ClCompile Include="base\WinApp.cpp" />
     <ClCompile Include="Char.cpp" />
     <ClCompile Include="ClearScene.cpp" />
+    <ClCompile Include="DefaltMap.cpp" />
     <ClCompile Include="FollowCamera.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameOverScene.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="base\WinApp.h" />
     <ClInclude Include="Char.h" />
     <ClInclude Include="ClearScene.h" />
+    <ClInclude Include="DefaltMap.h" />
     <ClInclude Include="FollowCamera.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameOverScene.h" />

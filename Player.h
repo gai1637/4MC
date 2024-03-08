@@ -18,7 +18,7 @@ public:
 	void BehaviorUpdate();
 	Vector3 GetPrepos() { return PrePos; }
 	void SetPrepos(const Vector3& pos) { PrePos = pos; }
-
+	const uint32_t GetSize() { return size; }
 
 private:
 	void kRootInitialize();
@@ -32,5 +32,5 @@ private:
 	Vector3 PrePos;
 	float speed;
 	float jumpSpeed;
-	
+	const uint32_t size = 32;
 };

@@ -1,8 +1,10 @@
-
+#include"TextureManager.h"
 #include "Player.h"
+#include"imgui.h"
 
 void Player::Initialize() { 
-	
+	textureHandle_ = TextureManager::Load("Player/kari.png");
+	worldTransform_.translation_ = {100.f, 100.f, 0.f};
 	worldTransform_.Initialize();
 	PrePos = worldTransform_.translation_;
 	speed = 0.f;
@@ -15,7 +17,9 @@ void Player::Initialize() {
 void Player::Update() { 
 
 	BehaviorUpdate();
-
+	ImGui::Begin("a");
+	ImGui::DragFloat("%f", &speed);
+	ImGui::End();
 	worldTransform_.UpdateMatrix(); 
 }
 
@@ -58,30 +62,32 @@ void Player::kRootInitialize() {
 }
 
 void Player::KRootUpdate() { 
-	const float acceleration = 0.1f;
-	const float MaxSpeed = 1.0f;
+	worldTransform_.translation_ = PrePos;
+	sprite_.reset(Sprite::Create(
+	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
+
+	const float acceleration = 1.f;
+	const float MaxSpeed = 10.0f;
 	const float gravity = 0.0f;
 	if (Input::GetInstance()->GetJoystickState(0, joyState)) {
 		bool isMoving = false;
 		const float threshold = 0.7f;
 		float move = (float)joyState.Gamepad.sThumbLX / SHRT_MAX;
-		if (move > threshold) {
+		if (move > threshold||move<-threshold) {
 			isMoving = true;
+			
+		} else {
+			speed = 0.0f;
 		}
 		if (isMoving) {
-			if (move > 0) {
-			PrePos.x += speed;
+			
+			PrePos.x += speed*move;
+			
 			if (speed<=MaxSpeed)
 			speed += acceleration;
-			}
-			else {
-			PrePos.x-=speed;
-			if (speed<=MaxSpeed)
-			speed += acceleration;
-			}
-		} else {
-			speed = 0.f;
-		}
+			
+			
+		} 
 		if (joyState.Gamepad.wButtons & XINPUT_GAMEPAD_A) {
 			jumpSpeed = 1.0f;
 		}
@@ -109,6 +115,7 @@ void Player::KRootUpdate() {
 	}
 	PrePos.y += jumpSpeed;
 	jumpSpeed -= gravity;
+	
 }
 
 void Player::Draw() { sprite_->Draw(); }
