@@ -3,7 +3,8 @@
 #include"imgui.h"
 
 void Player::Initialize() { 
-	textureHandle_ = TextureManager::Load("Player/kari.png");
+	textureHandle_ = TextureManager::Load("PlayerREsouce/kari.png");
+	
 	worldTransform_.translation_ = {100.f, 100.f, 0.f};
 	worldTransform_.Initialize();
 	PrePos = worldTransform_.translation_;
@@ -11,6 +12,8 @@ void Player::Initialize() {
 	jumpSpeed = 0.f;
 	sprite_.reset(Sprite::Create(
 	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
+	model = std::make_unique<Model>();
+	model.reset(Model::CreateFromOBJ("Player", true));
 
 }
 
