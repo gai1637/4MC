@@ -13,8 +13,8 @@ void Player::Initialize() {
 	sprite_.reset(Sprite::Create(
 	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
 	model = std::make_unique<Model>();
-	model.reset(Model::CreateFromOBJ("Player", true));
-
+	model.reset(Model::CreateFromOBJ("box", true));
+	input_ = Input::GetInstance();
 }
 
 void Player::Update() { 
@@ -60,15 +60,18 @@ void Player::BehaviorUpdate() {
 	}
 }
 
-void Player::kRootInitialize() {
+void Player::PlayerMove() {
+worldTransform_.translation_ = PrePos;
+	sprite_.reset(Sprite::Create(
+	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
+}
 
+void Player::kRootInitialize() {
+	
 }
 
 void Player::KRootUpdate() { 
-	worldTransform_.translation_ = PrePos;
-	sprite_.reset(Sprite::Create(
-	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
-
+	
 	const float acceleration = 1.f;
 	const float MaxSpeed = 10.0f;
 	const float gravity = 0.0f;

@@ -19,6 +19,7 @@ public:
 	Vector3 GetPrepos() { return PrePos; }
 	void SetPrepos(const Vector3& pos) { PrePos = pos; }
 	const uint32_t GetSize() { return size; }
+	void PlayerMove();
 
 private:
 	void kRootInitialize();

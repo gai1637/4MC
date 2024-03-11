@@ -3,7 +3,7 @@
 void TitleScene::Iint() { 
 	textureHandle_ = TextureManager::Load("Game Title.png");
 	sprite_.reset(Sprite::Create(textureHandle_, {0,0}));
-
+	input_ = Input::GetInstance();
 
 }
 
@@ -14,11 +14,11 @@ void TitleScene::Update() {
 			sceneNo_ = STAGE;
 		}
 
-	} /*else {
-		if (input_->TriggerKey(DIK_SPACE)) {
+	}
+	if (input_->TriggerKey(DIK_SPACE)) {
 		sceneNo_ = STAGE;
-		}
-	}*/
+	}
+	
 }
 
 void TitleScene::Draw3D() {}
