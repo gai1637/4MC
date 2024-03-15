@@ -111,6 +111,8 @@
     <ClCompile Include="base\WinApp.cpp" />
     <ClCompile Include="Char.cpp" />
     <ClCompile Include="ClearScene.cpp" />
+    <ClCompile Include="Colider2D.cpp" />
+    <ClCompile Include="ColisionManager.cpp" />
     <ClCompile Include="DefaltMap.cpp" />
     <ClCompile Include="FollowCamera.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -152,6 +154,8 @@
     <ClInclude Include="base\WinApp.h" />
     <ClInclude Include="Char.h" />
     <ClInclude Include="ClearScene.h" />
+    <ClInclude Include="Colider2D.h" />
+    <ClInclude Include="ColisionManager.h" />
     <ClInclude Include="DefaltMap.h" />
     <ClInclude Include="FollowCamera.h" />
     <ClInclude Include="GameManager.h" />

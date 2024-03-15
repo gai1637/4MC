@@ -10,3 +10,5 @@ void Map1::Initialize() {
 	}
 	Iint();
 }
+
+Map1::~Map1() {}

@@ -18,9 +18,9 @@ public:
 	void BehaviorUpdate();
 	Vector3 GetPrepos() { return PrePos; }
 	void SetPrepos(const Vector3& pos) { PrePos = pos; }
-	const uint32_t GetSize() { return size; }
+	const float GetSize() { return size; }
 	void PlayerMove();
-
+	
 private:
 	void kRootInitialize();
 	void KRootUpdate();
@@ -33,5 +33,5 @@ private:
 	Vector3 PrePos;
 	float speed;
 	float jumpSpeed;
-	const uint32_t size = 32;
+	
 };

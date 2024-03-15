@@ -1,9 +1,10 @@
 #pragma once
 #include "DefaltMap.h"
+
 class Map1 : public DefaltMap {
 public:
 	void Initialize() override;
-	
+	virtual ~Map1();
 
 private:
 	int premap[High][Wide]{
