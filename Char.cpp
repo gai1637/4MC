@@ -1,44 +1,22 @@
 #include "Char.h"
 
-
-
-
-Vector3 Char::GetLeftUpPosition() const { 
-	Vector3 worldPos;
-	worldPos = worldTransform_.translation_;
-
-
-
-
-	return  worldPos; 
-
-
-}
-
-Vector3 Char::GetRightUpPosition() const 
+float Char::GetLeftPosition() const 
 { 
-	
-	Vector3 worldPos;
-	worldPos.x = worldTransform_.translation_.x+size;
-	worldPos.y = worldTransform_.translation_.y;
-	worldPos.z = worldTransform_.translation_.z;
-	return  worldPos; 
+	return worldTransform_.translation_.x; 
 }
 
-Vector3 Char::GetLeftDownPosition() const 
-{
-	Vector3 worldPos;
-	worldPos.x = worldTransform_.translation_.x;
-	worldPos.y = worldTransform_.translation_.y+size;
-	worldPos.z = worldTransform_.translation_.z;
-	return  worldPos; 
-}
-
-Vector3 Char::GetRightDownPosition() const
+float Char::GetRightPosition() const 
 { 
-	Vector3 worldPos;
-	worldPos.x = worldTransform_.translation_.x+size;
-	worldPos.y = worldTransform_.translation_.y+size;
-	worldPos.z = worldTransform_.translation_.z;
-	return  worldPos; 
+	return worldTransform_.translation_.x+size_-1; 
 }
+
+float Char::GetDownPosition() const 
+{ 
+	return worldTransform_.translation_.y+size_-1; 
+}
+
+float Char::GetUpPosition() const 
+{ 
+	return worldTransform_.translation_.y+size_; 
+}
+

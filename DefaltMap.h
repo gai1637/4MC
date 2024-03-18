@@ -4,13 +4,13 @@
 #include<List>
 #include"Colider2D.h"
 
-class Map : Colider2D {
+class Map : public Colider2D {
 public:
 	template<class T> using unique_ptr=std::unique_ptr<T>;
-	Vector3 GetLeftUpPosition() const override;
-	Vector3 GetRightUpPosition() const override;
-	Vector3 GetLeftDownPosition() const override;
-	Vector3 GetRightDownPosition() const override;
+	float GetLeftPosition()  const override;
+	float GetUpPosition()    const override;
+	float GetDownPosition()  const override;
+	float GetRightPosition() const override;
 	void Iint(int i,Vector2 pos);
 	
 	virtual ~Map();
@@ -20,7 +20,7 @@ private:
 	unique_ptr<Sprite> sprite_;
 	int flooorTexture;
 	Vector2 posision_;
-	float size = 64.0;
+	/*float size = 64.0;*/
 };
 class DefaltMap{
 public:
@@ -32,6 +32,8 @@ public:
 	
 	int Getmap(int a, int b) { return map[a][b]; }
 	virtual ~DefaltMap() = default;
+	std::list<std::unique_ptr<Map>> GetMapList() { return maps_; }
+
 protected:
 	
 	static const int Wide = 100;

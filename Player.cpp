@@ -15,7 +15,7 @@ void Player::Initialize() {
 	model = std::make_unique<Model>();
 	model.reset(Model::CreateFromOBJ("box", true));
 	input_ = Input::GetInstance();
-	size = 64;
+	size_ = 64;
 }
 
 void Player::Update() { 

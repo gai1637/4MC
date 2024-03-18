@@ -4,44 +4,16 @@ Map::~Map() {}
 
 void Map::Draw() { sprite_->Draw(); }
 
-Vector3 Map::GetLeftUpPosition() const 
-{ 
-	Vector3 vector;
-	vector.x = posision_.x;
-	vector.y = posision_.y;
-	vector.z = 0;
-	return vector; 
-}
+float Map::GetLeftPosition() const { return posision_.x; }
 
-Vector3 Map::GetRightUpPosition() const 
-{ 
-	Vector3 vector;
-	vector.x = posision_.x+size;
-	vector.y = posision_.y;
-	vector.z = 0;
-	return vector; 
-}
+float Map::GetUpPosition() const { return posision_.y; }
 
-Vector3 Map::GetLeftDownPosition() const 
-{
-	Vector3 vector;
-	vector.x = posision_.x ;
-	vector.y = posision_.y+ size;
-	vector.z = 0;
-	return vector;
-}
+float Map::GetDownPosition() const { return posision_.y + size_ - 1; }
 
-Vector3 Map::GetRightDownPosition() const 
-{ 
-	Vector3 vector;
-	vector.x = posision_.x + size;
-	vector.y = posision_.y+ size;
-	vector.z = 0;
-	return vector;
-}
+float Map::GetRightPosition() const { return posision_.x+size_-1; }
 
 void Map::Iint(int i, Vector2 pos) {
-	size = 64.f;
+	size_ = 64.f;
 	flooorTexture = TextureManager::Load("PlayerResouce/kari.png");
 
 	posision_ = pos;
