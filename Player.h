@@ -18,7 +18,7 @@ public:
 	void BehaviorUpdate();
 	Vector3 GetPrepos() { return PrePos; }
 	void SetPrepos(const Vector3& pos) { PrePos = pos; }
-	const float GetSize() { return size; }
+	const float GetSize() { return size_; }
 	void PlayerMove();
 	
 private:

@@ -32,7 +32,7 @@ public:
 	
 	int Getmap(int a, int b) { return map[a][b]; }
 	virtual ~DefaltMap() = default;
-	std::list<std::unique_ptr<Map>> GetMapList() { return maps_; }
+	std::list<std::unique_ptr<Map>> GetMapList() { return std::move(maps_); }
 
 protected:
 	
