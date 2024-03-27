@@ -18,8 +18,8 @@ void ColisionManager::CheckColisionPair(Colider2D* coliderA, Colider2D* coliderB
 		PosALeft  < PosBRight && PosADown < PosBUp   ||
 		PosARight > PosBLeft  && PosAUp   > PosBDown || 
 		PosARight > PosBLeft  && PosADown < PosBUp ) {
-		coliderA->OnCollsion();
-		coliderB->OnCollsion();
+		coliderA->OnCollsion(coliderB);
+		coliderB->OnCollsion(coliderA);
 	}
 }
 

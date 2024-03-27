@@ -17,6 +17,6 @@ float Char::GetDownPosition() const
 
 float Char::GetUpPosition() const 
 { 
-	return worldTransform_.translation_.y+size_; 
+	return worldTransform_.translation_.y; 
 }
 

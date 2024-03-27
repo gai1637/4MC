@@ -17,6 +17,7 @@ public:
 private:
 	std::unique_ptr<Player> player_;
 	std::unique_ptr<DefaltMap> Map_[2];
+	std::list<std::unique_ptr<Map>> maps_;
 	ViewProjection viewProjection_;
 	uint32_t stage_;
 

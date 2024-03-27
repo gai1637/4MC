@@ -20,7 +20,7 @@ public:
 	void SetPrepos(const Vector3& pos) { PrePos = pos; }
 	const float GetSize() { return size_; }
 	void PlayerMove();
-	
+	void OnCollsion([[maybe_unused]]Colider2D* other) override;
 private:
 	void kRootInitialize();
 	void KRootUpdate();

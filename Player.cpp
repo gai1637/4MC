@@ -15,7 +15,8 @@ void Player::Initialize() {
 	model = std::make_unique<Model>();
 	model.reset(Model::CreateFromOBJ("box", true));
 	input_ = Input::GetInstance();
-	size_ = 64;
+	size_ = 64.f;
+	Colider2D::SetTypeID(static_cast<uint32_t>(ColisionTypeIDef::kPlayer));
 }
 
 void Player::Update() { 
@@ -65,6 +66,12 @@ void Player::PlayerMove() {
 worldTransform_.translation_ = PrePos;
 	sprite_.reset(Sprite::Create(
 	    textureHandle_, {worldTransform_.translation_.x, worldTransform_.translation_.y}));
+}
+
+void Player::OnCollsion([[maybe_unused]]Colider2D* other) {
+
+
+
 }
 
 void Player::kRootInitialize() {

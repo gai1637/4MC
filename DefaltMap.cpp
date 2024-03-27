@@ -21,6 +21,7 @@ void Map::Iint(int i, Vector2 pos) {
 	case 1:
 		sprite_ = std::make_unique<Sprite>();
 		sprite_.reset(Sprite::Create(flooorTexture,posision_));
+		Colider2D::SetTypeID(static_cast<uint32_t>(ColisionTypeIDef::kMap));
 		break;
 	default:
 		break;
